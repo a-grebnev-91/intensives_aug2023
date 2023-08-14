@@ -17,6 +17,7 @@ public class Task3InsertionSort {
                 if (numbers.get(j) > numbers.get(i)) {
                     Integer removed = numbers.remove(i);
                     numbers.add(j, removed);
+                    sortedIndex++;
                     break;
                 }
             }
@@ -30,5 +31,10 @@ public class Task3InsertionSort {
         ArrayList<Integer> output = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
 
         assert output.equals(sort(input));
+
+        ArrayList<Integer> input1 = new ArrayList<>(Arrays.asList(5, 4, 3, 2, 1));
+        ArrayList<Integer> output1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+
+        assert output1.equals(sort(input1));
     }
 }
