@@ -10,7 +10,19 @@ public class Task3InsertionSort {
          * Выход: отсортированный (сортировкой вставками!) numbers
          */
         // (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ WRITE CODE HERE (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
-        return null;
+        if (numbers == null || numbers.size() < 2) return numbers;
+        int sortedIndex = 0;
+        for (int i = 0; i < numbers.size(); i++) {
+            for (int j = 0; j <= sortedIndex; j++) {
+                if (numbers.get(j) > numbers.get(i)) {
+                    Integer removed = numbers.remove(i);
+                    numbers.add(j, removed);
+                    break;
+                }
+            }
+        }
+        System.out.println(numbers);
+        return numbers;
     }
 
     public static void selfCheck() {
