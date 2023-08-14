@@ -10,7 +10,20 @@ public class Task3InsertionSort {
          * Выход: отсортированный (сортировкой вставками!) numbers
          */
         // (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ WRITE CODE HERE (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
-        return null;
+        if (numbers == null || numbers.size() < 2) return numbers;
+        int sortedIndex = 0;
+        for (int i = 0; i < numbers.size(); i++) {
+            for (int j = 0; j <= sortedIndex; j++) {
+                if (numbers.get(j) > numbers.get(i)) {
+                    Integer removed = numbers.remove(i);
+                    numbers.add(j, removed);
+                    sortedIndex++;
+                    break;
+                }
+            }
+        }
+        System.out.println(numbers);
+        return numbers;
     }
 
     public static void selfCheck() {
@@ -18,5 +31,10 @@ public class Task3InsertionSort {
         ArrayList<Integer> output = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
 
         assert output.equals(sort(input));
+
+        ArrayList<Integer> input1 = new ArrayList<>(Arrays.asList(5, 4, 3, 2, 1));
+        ArrayList<Integer> output1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+
+        assert output1.equals(sort(input1));
     }
 }
