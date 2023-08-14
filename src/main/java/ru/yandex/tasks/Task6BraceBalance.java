@@ -17,14 +17,10 @@ public class Task6BraceBalance {
             } else {
                 if (stack.isEmpty()) return false;
                 char lastInStack = stack.peekLast();
-                if (lastInStack == ')' || lastInStack == ']' || lastInStack == '}') {
-                    stack.addLast(currChar);
-                } else {
-                    if (currChar == ')' && lastInStack != '(') return false;
-                    if (currChar == ']' && lastInStack != '[') return false;
-                    if (currChar == '}' && lastInStack != '{') return false;
-                    stack.pollLast();
-                }
+                if (currChar == ')' && lastInStack != '(') return false;
+                if (currChar == ']' && lastInStack != '[') return false;
+                if (currChar == '}' && lastInStack != '{') return false;
+                stack.pollLast();
             }
         }
         return stack.isEmpty();
